@@ -1,9 +1,18 @@
 <!doctype html>
 <html>
 <head>
-  <script src="bundle.js"></script>
+
 </head>
   <body>
-    <h1>Hello</h1>
+    <h1 id="headline">Hello</h1>
+
+    <script src="bundle.js"></script>
+    <script type="text/javascript">
+    var cls = collapsr(document.getElementById('headline'), {
+    	// relatedArticlesUrl: 'https://webhit.snd.no/webhit/reports/mostshared.json.php?range=today'
+    	defaultCss: false
+    });
+
+    </script>
   </body>
 </html>
