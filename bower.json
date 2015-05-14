@@ -1,0 +1,12 @@
+{
+  "name": "collapsr",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Schibsted-Tech-Polska/collapsr",
+  "authors": [
+    "Michal Misiarek <michal.misiarek@scgibsted.pl>"
+  ],
+  "description": "Library that collapse picked container and render both button to expand and related articles",
+  "main": "dist/bundle.js",
+  "license": "MIT",
+  "private": true
+}
