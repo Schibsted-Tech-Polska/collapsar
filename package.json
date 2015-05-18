@@ -23,7 +23,11 @@
     "webpack": "^1.9.4"
   },
   "dependencies": {
+    "asynquence": "^0.6.0-b",
+    "crypto": "0.0.3",
     "express": "^4.12.4",
-    "request": "^2.55.0"
+    "moment": "^2.10.3",
+    "request": "^2.55.0",
+    "underscore": "^1.8.3"
   }
 }
