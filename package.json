@@ -21,5 +21,8 @@
     "sass-loader": "^0.4.2",
     "style-loader": "^0.12.2",
     "webpack": "^1.9.4"
+  },
+  "dependencies": {
+    "express": "^4.12.4"
   }
 }
