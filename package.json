@@ -23,6 +23,7 @@
     "webpack": "^1.9.4"
   },
   "dependencies": {
-    "express": "^4.12.4"
+    "express": "^4.12.4",
+    "request": "^2.55.0"
   }
 }
