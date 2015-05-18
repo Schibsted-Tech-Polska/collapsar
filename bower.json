@@ -1,6 +1,15 @@
 {
   "name": "collapsr",
   "version": "1.0.0",
+  "ignore": [
+    "**/*.",
+    ".*",
+    "node_modules",
+    "src",
+    "node-middleware",
+    "webpack.config.js",
+    "package.json"
+  ],
   "homepage": "https://github.com/Schibsted-Tech-Polska/collapsr",
   "authors": [
     "Michal Misiarek <michal.misiarek@scgibsted.pl>"

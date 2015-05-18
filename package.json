@@ -1,8 +1,8 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "collapsr",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "node-middleware/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,11 +12,13 @@
     "babel-core": "^5.3.1",
     "babel-loader": "^5.0.0",
     "css-loader": "^0.12.0",
+    "handlebars": "^3.0.3",
+    "handlebars-loader": "^1.0.2",
     "jshint": "^2.7.0",
     "jshint-loader": "^0.8.3",
     "node-libs-browser": "^0.5.0",
     "node-sass": "^2.1.1",
-    "sass-loader": "^0.6.0",
+    "sass-loader": "^0.4.2",
     "style-loader": "^0.12.2",
     "webpack": "^1.9.4"
   }

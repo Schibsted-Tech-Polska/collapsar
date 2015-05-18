@@ -1,7 +1,6 @@
 
 var utils = require('./utils');
 var Widget = require('./widget');
-var Box = require('./article-box');
 //private stuff
 
 function setup(container, config){
@@ -21,8 +20,6 @@ function setup(container, config){
   if(options.defaultCss) { require('../css/main.scss'); }
   require('../css/core.scss');
 
-  Box.render();
-  
   return Widget(container, options);
 
 }

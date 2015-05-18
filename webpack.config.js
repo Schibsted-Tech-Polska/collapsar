@@ -14,7 +14,8 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, loader: 'babel', exclude: /node_modules/},
-      {test: /\.scss/, loader: 'style!css!sass', exclude: /node_modules/}
+      {test: /\.scss/, loader: 'style!css!sass', exclude: /node_modules/},
+      {test: /\.handlebars$/, loader: 'handlebars', exclude: /node_modules/},
     ]
   }
 };
