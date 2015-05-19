@@ -50,7 +50,6 @@ function getImage(escenicEntry) {
 
 
 function httpsSaveUrl(url) {
-    return url; //TODO do not commit
     return url.replace(/^http:/, "");
 }
 
