@@ -24,7 +24,5 @@ function setup(container, config){
 
 }
 
-
-
 //Public API
 module.exports = setup;

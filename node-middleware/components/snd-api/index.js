@@ -19,9 +19,8 @@ function config(cfg){
   function fetchArticles(ids, callback) {
     var options = generateSndRequestOptions();
     options.url =
-      'http://api1.snd.no/news/v2/publication/ap/searchContents/collection?contentIds=' +
+      'http://api.snd.no/news/v2/publication/ap/searchContents/collection?contentIds=' +
     ids.join(',');
-
     request(options, function (error, response, body) {
       if (!error && response.statusCode === 200) {
         body = JSON.parse(body);

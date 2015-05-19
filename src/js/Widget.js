@@ -8,8 +8,8 @@ function Widget(container, conf){
     classes: ['clr-click-more']
   });
 
-  articleBox.render(function(e){
-    container.parentNode.appendChild(e);
+  articleBox.render(conf.mostSharedUrl, function(box){
+    _button.parentNode.insertBefore(box, _button.nextSibling);
   });
 
 
@@ -34,11 +34,12 @@ function Widget(container, conf){
         self.expandContainer();
         self.removeBlur();
       });
-      _container.parentNode.appendChild(_button);
+      _container.parentNode.insertBefore(_button, _container.nextSibling);
     },
     hideButton: function (){
       _button.parentNode.removeChild(_button);
-    }
+    },
+    button: _button
   };
   //initialization
   API.collapse();

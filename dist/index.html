@@ -15,14 +15,17 @@
 
       Vivamus lobortis, dolor vel tempor lacinia, lectus justo faucibus tortor, quis scelerisque nulla diam quis turpis. Fusce id molestie nisi, vitae rhoncus nunc. Donec bibendum orci ligula, feugiat vehicula sapien posuere sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam gravida dictum lacus. Vestibulum nec ipsum dictum, elementum ante quis, varius erat. Ut ultrices ligula sed enim efficitur varius. Praesent metus tortor, eleifend sed mauris eget, vulputate sollicitudin velit. Nam ac nunc et est eleifend tincidunt eget et nunc. Integer tincidunt posuere imperdiet. Nulla facilisi. Curabitur accumsan mattis nisi non posuere. Sed lacinia neque at mattis aliquam. Ut sem urna, tristique in vulputate quis, tincidunt id diam. Morbi feugiat quam ut est pretium luctus. Vestibulum vel magna ac nulla fermentum porta.
     </div>
-
+    <hr>
     <script src="bundle.js"></script>
     <script type="text/javascript">
     var cls = collapsr(document.getElementById('headline'), {
+      mostSharedUrl: 'http://localhost:3000/collapsr',
     	// relatedArticlesUrl: 'https://webhit.snd.no/webhit/reports/mostshared.json.php?range=today'
     	defaultCss: false
     });
-
+    cls.button.addEventListener('click', function(){
+      console.log('extra');
+    });
     </script>
   </body>
 </html>

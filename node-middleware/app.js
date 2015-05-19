@@ -62,7 +62,6 @@ function createMiddleware(config){
 
   }
 
-
   return app;
 }
 
