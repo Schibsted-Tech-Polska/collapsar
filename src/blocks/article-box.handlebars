@@ -1,7 +1,23 @@
-<div>
-  <h3>Most popular</h3>
-  {{#articles}}
-  <a href="{{url}}">{{title}}</a>
-  <img src="{{imageUrl}}" alt="" />
-  {{/articles}}
+<div class="most-shared-container">
+  <h1 class="most-shared-header">
+    Most shared this week
+  </h1>
+    <ul>
+      {{#articles}}
+        <li class="most-shared-article">
+          <div class="most-shared-img">
+            <img src="{{imageUrl}}" alt="" />
+          </div>
+
+          <div class="most-shared-info">
+            <a class="shared-title" href="{{url}}">
+              {{title}}
+            </a>
+            <div class="shared-nr">
+              {{fb_shares}}x delt
+            </div>
+          </div>
+        </li>
+      {{/articles}}
+    </ul>
 </div>

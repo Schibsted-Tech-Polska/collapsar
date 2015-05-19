@@ -61,7 +61,7 @@ var collapsr =
 	    defaultCss: true,
 	    visibleHeight: 100,
 	    button: {
-	      text: 'Default text',
+	      text: 'Fortsette lesingen',
 	      cssClass: 'read-more-button'
 	    }
 	  };
@@ -255,7 +255,7 @@ var collapsr =
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(1)();
-	exports.push([module.id, ".clr-container-collapsed {\n  overflow: hidden;\n  height: 100px; }\n\n.clr-container-blured {\n  border-bottom: 1px solid black; }\n", ""]);
+	exports.push([module.id, ".clr-container-collapsed {\n  background: #F8F8F8;\n  overflow: hidden;\n  height: 300px;\n  position: relative; }\n  .clr-container-collapsed:after {\n    display: block;\n    content: '';\n    width: 100%;\n    height: 265px;\n    position: absolute;\n    bottom: 0px;\n    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.91) 89%, #ededed 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(89%, rgba(255, 255, 255, 0.91)), color-stop(100%, #ededed));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.91) 89%, #ededed 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.91) 89%, #ededed 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.91) 89%, #ededed 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.91) 89%, #ededed 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ededed',GradientType=0 );\n    /* IE6-9 */ }\n\n.clr-container-blured {\n  border-bottom: 1px solid black; }\n\n.clr-click-more {\n  margin: -65px auto 50px auto;\n  display: block;\n  position: relative;\n  height: 35px;\n  padding: 0px 50px;\n  font-size: 15px;\n  color: #fff;\n  border: none;\n  text-transform: uppercase;\n  border-radius: 7px;\n  background: #1D84A3; }\n\n.most-shared-container {\n  font-family: arial; }\n  .most-shared-container .most-shared-header {\n    padding: 0px 20px;\n    color: #888888;\n    font-size: 20px;\n    margin: 20px 0 0px; }\n  .most-shared-container ul, .most-shared-container li {\n    list-style: none;\n    padding: 0px; }\n  .most-shared-container .most-shared-article {\n    display: table;\n    width: 100%;\n    padding: 0px 20px;\n    height: 100px;\n    box-sizing: border-box; }\n    .most-shared-container .most-shared-article .most-shared-img, .most-shared-container .most-shared-article .most-shared-info {\n      display: table-cell;\n      vertical-align: middle;\n      font-size: 14px; }\n    .most-shared-container .most-shared-article .most-shared-img {\n      padding-right: 20px;\n      max-width: 142px; }\n      .most-shared-container .most-shared-article .most-shared-img img {\n        max-height: 80px; }\n    .most-shared-container .most-shared-article .most-shared-info .shared-title {\n      font-weight: bold;\n      color: #3F96B1;\n      max-height: 32px;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      display: block;\n      text-decoration: none; }\n    .most-shared-container .most-shared-article .most-shared-info .shared-nr {\n      margin-top: 5px;\n      color: #888888; }\n    .most-shared-container .most-shared-article:nth-child(odd) {\n      background: #fff; }\n    .most-shared-container .most-shared-article:nth-child(even) {\n      background: #F8F8F8; }\n", ""]);
 
 /***/ },
 /* 7 */
@@ -624,20 +624,22 @@ var collapsr =
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(depth0,helpers,partials,data) {
 	    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 	
-	  return "  <a href=\""
-	    + alias3(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"url","hash":{},"data":data}) : helper)))
-	    + "\">"
-	    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-	    + "</a>\n  <img src=\""
+	  return "        <li class=\"most-shared-article\">\n          <div class=\"most-shared-img\">\n            <img src=\""
 	    + alias3(((helper = (helper = helpers.imageUrl || (depth0 != null ? depth0.imageUrl : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"imageUrl","hash":{},"data":data}) : helper)))
-	    + "\" alt=\"\" />\n";
+	    + "\" alt=\"\" />\n          </div>\n\n          <div class=\"most-shared-info\">\n            <a class=\"shared-title\" href=\""
+	    + alias3(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"url","hash":{},"data":data}) : helper)))
+	    + "\">\n              "
+	    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
+	    + "\n            </a>\n            <div class=\"shared-nr\">\n              "
+	    + alias3(((helper = (helper = helpers.fb_shares || (depth0 != null ? depth0.fb_shares : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"fb_shares","hash":{},"data":data}) : helper)))
+	    + "x delt\n            </div>\n          </div>\n        </li>\n";
 	},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
 	    var stack1, helper, options, buffer = 
-	  "<div>\n  <h3>Most popular</h3>\n";
+	  "<div class=\"most-shared-container\">\n  <h1 class=\"most-shared-header\">\n    Most shared this week\n  </h1>\n    <ul>\n";
 	  stack1 = ((helper = (helper = helpers.articles || (depth0 != null ? depth0.articles : depth0)) != null ? helper : helpers.helperMissing),(options={"name":"articles","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data}),(typeof helper === "function" ? helper.call(depth0,options) : helper));
 	  if (!helpers.articles) { stack1 = helpers.blockHelperMissing.call(depth0,stack1,options)}
 	  if (stack1 != null) { buffer += stack1; }
-	  return buffer + "</div>\n";
+	  return buffer + "    </ul>\n</div>\n";
 	},"useData":true});
 
 /***/ },
