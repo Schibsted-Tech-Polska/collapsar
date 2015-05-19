@@ -1,6 +1,6 @@
 {
   "name": "collapsr",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "",
   "main": "node-middleware/app.js",
   "scripts": {
