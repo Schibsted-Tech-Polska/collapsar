@@ -21,7 +21,6 @@ function setup(container, config){
   require('../css/core.scss');
 
   return Widget(container, options);
-
 }
 
 //Public API

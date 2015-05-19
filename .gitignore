@@ -169,4 +169,4 @@ crashlytics-build.properties
 # sftp configuration file
 sftp-config.json
 
-node-middleware/test
+test-server/config.js
