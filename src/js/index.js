@@ -11,7 +11,7 @@ function setup(container, config){
   	defaultCss: true,
     visibleHeight: 100,
     button: {
-      text: "Default text",
+      text: "Fortsette lesingen",
       cssClass: 'read-more-button'
     }
   };
