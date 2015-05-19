@@ -3,7 +3,7 @@ var path = require('path');
 
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+
 var collapsr = require('../node-middleware/app');
 
 var app = express();
