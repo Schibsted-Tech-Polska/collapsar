@@ -9,7 +9,10 @@ function parseResponse(data) {
 
 
     return data.filter(withId).reduce(function(acc, curr){
-      acc[getId(curr)] = getImage(curr);
+      acc[getId(curr)] = {
+        image: getImage(curr),
+        title: curr.title
+      }
       return acc;
     }, {});
 }

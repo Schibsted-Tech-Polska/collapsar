@@ -140,8 +140,8 @@ var collapsr =
 
 	'use strict';
 	
-	var btn = __webpack_require__(8);
-	var articleBox = __webpack_require__(9);
+	var btn = __webpack_require__(7);
+	var articleBox = __webpack_require__(8);
 	function Widget(container, conf) {
 	  //declarations
 	  var _container = container;
@@ -201,7 +201,7 @@ var collapsr =
 	var content = __webpack_require__(4);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -234,7 +234,7 @@ var collapsr =
 	var content = __webpack_require__(6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -259,6 +259,62 @@ var collapsr =
 
 /***/ },
 /* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var template = __webpack_require__(11);
+	var utils = __webpack_require__(10);
+	
+	exports['default'] = function (params) {
+	  var buttonString = template({
+	    text: params.text || 'Button text not provided!',
+	    classes: params.classes ? params.classes.join(' ') : ''
+	  });
+	  return utils.stringToDom(buttonString);
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports.render = render;
+	var utils = __webpack_require__(10);
+	var template = __webpack_require__(12);
+	
+	function render(jsonUrl, done) {
+	  utils.ajax(jsonUrl, function (code, responseText) {
+	    var responseJson = JSON.parse(responseText);
+	    var responseHtml = '<span></span>';
+	    if (responseJson.length) {
+	      responseHtml = template({
+	        articles: responseJson
+	      });
+	      done(utils.stringToDom(responseHtml));
+	    } else {
+	      done(utils.stringToDom(responseHtml));
+	    }
+	  });
+	}
+	
+	function getIdOfArticle(link) {
+	  var reg = /article(.*)\.ece/;
+	  var match = reg.exec(link);
+	  return match ? match[1] : '0';
+	}
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -483,62 +539,6 @@ var collapsr =
 
 
 /***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	var template = __webpack_require__(12);
-	var utils = __webpack_require__(10);
-	
-	exports['default'] = function (params) {
-	  var buttonString = template({
-	    text: params.text || 'Button text not provided!',
-	    classes: params.classes ? params.classes.join(' ') : ''
-	  });
-	  return utils.stringToDom(buttonString);
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	exports.render = render;
-	var utils = __webpack_require__(10);
-	var template = __webpack_require__(11);
-	
-	function render(jsonUrl, done) {
-	  utils.ajax(jsonUrl, function (code, responseText) {
-	    var responseJson = JSON.parse(responseText);
-	    var responseHtml = '<span></span>';
-	    if (responseJson.length) {
-	      responseHtml = template({
-	        articles: responseJson
-	      });
-	      done(utils.stringToDom(responseHtml));
-	    } else {
-	      done(utils.stringToDom(responseHtml));
-	    }
-	  });
-	}
-	
-	function getIdOfArticle(link) {
-	  var reg = /article(.*)\.ece/;
-	  var match = reg.exec(link);
-	  return match ? match[1] : '0';
-	}
-
-/***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -608,6 +608,21 @@ var collapsr =
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(13);
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+	    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+	
+	  return "<button class=\""
+	    + alias3(((helper = (helper = helpers.classes || (depth0 != null ? depth0.classes : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"classes","hash":{},"data":data}) : helper)))
+	    + "\">"
+	    + alias3(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
+	    + "</button>\n";
+	},"useData":true});
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(13);
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(depth0,helpers,partials,data) {
 	    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 	
@@ -627,21 +642,6 @@ var collapsr =
 	  if (!helpers.articles) { stack1 = helpers.blockHelperMissing.call(depth0,stack1,options)}
 	  if (stack1 != null) { buffer += stack1; }
 	  return buffer + "    </ul>\n</div>\n";
-	},"useData":true});
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(13);
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-	    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
-	
-	  return "<button class=\""
-	    + alias3(((helper = (helper = helpers.classes || (depth0 != null ? depth0.classes : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"classes","hash":{},"data":data}) : helper)))
-	    + "\">"
-	    + alias3(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
-	    + "</button>\n";
 	},"useData":true});
 
 /***/ },

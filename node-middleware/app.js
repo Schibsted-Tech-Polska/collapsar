@@ -50,7 +50,8 @@ function createMiddleware(config){
           sndApi.fetchArticles(ids, function(err, data){
             // adding image to most shared articles
             var merged = best.map(function(article){
-              article.imageUrl = data[article.id];
+              article.imageUrl = data[article.id].image;
+              article.title = data[article.id].title;
               return article;
             });
             //add to cache
