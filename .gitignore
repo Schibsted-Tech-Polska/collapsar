@@ -170,3 +170,5 @@ crashlytics-build.properties
 sftp-config.json
 
 test-server/config.js
+test-server/public/javascripts/bundle.js.map
+test-server/public/javascripts/bundle.js

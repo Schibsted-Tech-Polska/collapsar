@@ -13,6 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
 
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -50,6 +51,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5555;
 app.listen(port);
-console.log('test server started on port: ' + port);
+console.log('Test server started on port: ' + port);

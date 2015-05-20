@@ -24,39 +24,42 @@ function createMiddleware(config){
       console.log('most shared articles fetched from source');
       getMostShared().
         then(function(_, mostShared){
-        //sort reposne from webhits
-        var best = mostShared.sort(function(a, b){
-          return b.total_count - a.total_count;
-        })
-        //add article id to Object => used when merging response from SND
-        .map(function(article){
-          article.id = getIdOfArticle(article);
-          return article;
-        })
-        //remove those for which regexp didn't work
-        .filter(function(article){
-          return article.id;
-        })
-        //get only five elements
-        .slice(0, 5);
-
-        //array of best IDs
-        var ids = best.map(function(article){
-          return article.id;
-        });
-
-        //fetchArticles gets array of ids as first parameter
-        sndApi.fetchArticles(ids, function(err, data){
-          // adding image to most shared articles
-          var merged = best.map(function(article){
-            article.imageUrl = data[article.id];
+        if(mostShared.length){
+          //sort reposne from webhits
+          var best = mostShared.sort(function(a, b){
+            return b.total_count - a.total_count;
+          })
+          //add article id to Object => used when merging response from SND
+          .map(function(article){
+            article.id = getIdOfArticle(article);
             return article;
-          });
-          //add to cache
-          cached = { content: merged, expires: now() + ttl};
-          res.send(merged);
-        });
+          })
+          //remove those for which regexp didn't work
+          .filter(function(article){
+            return article.id;
+          })
+          //get only five elements
+          .slice(0, 5);
 
+          //array of best IDs
+          var ids = best.map(function(article){
+            return article.id;
+          });
+
+          //fetchArticles gets array of ids as first parameter
+          sndApi.fetchArticles(ids, function(err, data){
+            // adding image to most shared articles
+            var merged = best.map(function(article){
+              article.imageUrl = data[article.id];
+              return article;
+            });
+            //add to cache
+            cached = { content: merged, expires: now() + ttl};
+            res.send(merged);
+          });
+        } else {
+          res.send([]);
+        }
       });
     }
 
@@ -67,7 +70,7 @@ function createMiddleware(config){
 
 function getMostShared(){
   return ASQ(function(done){
-    request('https://webhit.snd.no/webhit/reports/mostshared.json.php?range=today', function(err, response, data){
+    request('https://webhit.snd.no/webhit/reports/mostshared.json.php?range=week', function(err, response, data){
       done(JSON.parse(data));
     });
   });
