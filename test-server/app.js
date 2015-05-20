@@ -51,6 +51,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var port = process.env.PORT || 5555;
+var port = 5555;
 app.listen(port);
 console.log('Test server started on port: ' + port);
