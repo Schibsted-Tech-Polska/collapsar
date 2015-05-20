@@ -63,6 +63,9 @@ var collapsr =
 	    button: {
 	      text: 'Fortsette lesingen',
 	      cssClass: 'read-more-button'
+	    },
+	    mostShared: {
+	      header: 'Mest delte artikler'
 	    }
 	  };
 	  var options = utils.extend(defaultValues, config);
@@ -150,7 +153,10 @@ var collapsr =
 	    classes: ['clr-click-more']
 	  });
 	
-	  articleBox.render(conf.mostSharedUrl, function (box) {
+	  articleBox.render({
+	    url: conf.mostShared.url,
+	    header: conf.mostShared.header
+	  }, function (box) {
 	    _button.parentNode.insertBefore(box, _button.nextSibling);
 	  });
 	
@@ -292,13 +298,14 @@ var collapsr =
 	var utils = __webpack_require__(10);
 	var template = __webpack_require__(12);
 	
-	function render(jsonUrl, done) {
-	  utils.ajax(jsonUrl, function (code, responseText) {
+	function render(conf, done) {
+	  utils.ajax(conf.url, function (code, responseText) {
 	    var responseJson = JSON.parse(responseText);
 	    var responseHtml = '<span></span>';
 	    if (responseJson.length) {
 	      responseHtml = template({
-	        articles: responseJson
+	        articles: responseJson,
+	        header: conf.header
 	      });
 	      done(utils.stringToDom(responseHtml));
 	    } else {
@@ -636,9 +643,11 @@ var collapsr =
 	    + alias3(((helper = (helper = helpers.fb_shares || (depth0 != null ? depth0.fb_shares : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"fb_shares","hash":{},"data":data}) : helper)))
 	    + "x delt\n            </div>\n          </div>\n        </li>\n";
 	},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-	    var stack1, helper, options, buffer = 
-	  "<div class=\"most-shared-container\">\n  <h1 class=\"most-shared-header\">\n    Most shared this week\n  </h1>\n    <ul>\n";
-	  stack1 = ((helper = (helper = helpers.articles || (depth0 != null ? depth0.articles : depth0)) != null ? helper : helpers.helperMissing),(options={"name":"articles","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data}),(typeof helper === "function" ? helper.call(depth0,options) : helper));
+	    var stack1, helper, options, alias1=helpers.helperMissing, alias2="function", buffer = 
+	  "<div class=\"most-shared-container\">\n  <h1 class=\"most-shared-header\">\n    "
+	    + this.escapeExpression(((helper = (helper = helpers.header || (depth0 != null ? depth0.header : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"header","hash":{},"data":data}) : helper)))
+	    + "\n  </h1>\n    <ul>\n";
+	  stack1 = ((helper = (helper = helpers.articles || (depth0 != null ? depth0.articles : depth0)) != null ? helper : alias1),(options={"name":"articles","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data}),(typeof helper === alias2 ? helper.call(depth0,options) : helper));
 	  if (!helpers.articles) { stack1 = helpers.blockHelperMissing.call(depth0,stack1,options)}
 	  if (stack1 != null) { buffer += stack1; }
 	  return buffer + "    </ul>\n</div>\n";

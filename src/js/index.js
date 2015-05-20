@@ -13,6 +13,9 @@ function setup(container, config){
     button: {
       text: "Fortsette lesingen",
       cssClass: 'read-more-button'
+    },
+    mostShared: {
+      header: 'Mest delte artikler'
     }
   };
   var options = utils.extend(defaultValues, config);

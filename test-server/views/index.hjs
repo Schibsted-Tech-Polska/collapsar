@@ -21,7 +21,10 @@
     <script src="javascripts/bundle.js"></script>
     <script type="text/javascript">
     var cls = collapsr(document.getElementById('headline'), {
-mostSharedUrl: 'http://localhost:5555/collapsr',
+      mostShared: {
+        url: '/collapsr',
+        header: 'Mest delte artikler'
+      },
     	// relatedArticlesUrl: 'https://webhit.snd.no/webhit/reports/mostshared.json.php?range=today'
     	defaultCss: false
     });

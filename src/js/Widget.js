@@ -8,7 +8,10 @@ function Widget(container, conf){
     classes: ['clr-click-more']
   });
 
-  articleBox.render(conf.mostSharedUrl, function(box){
+  articleBox.render({
+    url: conf.mostShared.url,
+    header: conf.mostShared.header
+  }, function(box){
     _button.parentNode.insertBefore(box, _button.nextSibling);
   });
 
