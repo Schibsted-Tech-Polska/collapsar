@@ -640,7 +640,7 @@ var collapsr =
 	    + "\">\n              "
 	    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
 	    + "\n            </a>\n            <div class=\"shared-nr\">\n              "
-	    + alias3(((helper = (helper = helpers.fb_shares || (depth0 != null ? depth0.fb_shares : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"fb_shares","hash":{},"data":data}) : helper)))
+	    + alias3(((helper = (helper = helpers.total_count || (depth0 != null ? depth0.total_count : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"total_count","hash":{},"data":data}) : helper)))
 	    + "x delt\n            </div>\n          </div>\n        </li>\n";
 	},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
 	    var stack1, helper, options, alias1=helpers.helperMissing, alias2="function", buffer = 
