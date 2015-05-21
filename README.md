@@ -1,12 +1,14 @@
 # collapsr
-Small library to collapsing article on page. 
+Small library to collapsing article on page and rendering box with most shared articles.
 
 [Webpack](http://webpack.github.io/docs/) used for development
 ## developing
 1. Install: `npm install`
-2. Compile: 
-  * build once for development: `webpack`
-  * build for production: `webpack -p`
-  * build on each change: `webpack --watch`
-3. Use it
-  * In `dist/index.html` you can find sample usage of library
+2. Run: `grunt`
+3. Visit: `localhost:5555`
+4. Compiled library can be found in `dist/bundle.js` 
+
+
+## using
+
+//TODO
