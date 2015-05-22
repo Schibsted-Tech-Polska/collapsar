@@ -2,22 +2,24 @@
   <h1 class="most-shared-header">
     {{header}}
   </h1>
-    <ul>
-      {{#articles}}
-        <li class="most-shared-article">
-          <div class="most-shared-img">
-            <img src="{{imageUrl}}" alt="" />
-          </div>
+  <ul>
+    {{#articles}}
+    <li class="most-shared-article">
+    <a href="{{url}}">
+      <div class="most-shared-img">
+        <img src="{{imageUrl}}" alt="" />
+      </div>
 
-          <div class="most-shared-info">
-            <a class="shared-title" href="{{url}}">
-              {{title}}
-            </a>
-            <div class="shared-nr">
-              {{counter}}{{counterLabel}}
-            </div>
-          </div>
-        </li>
-      {{/articles}}
-    </ul>
+      <div class="most-shared-info">
+        <a class="shared-title" href="{{url}}">
+          {{title}}
+        </a>
+        <div class="shared-nr">
+          {{counter}}{{counterLabel}}
+        </div>
+      </div>
+    </a>
+    </li>
+    {{/articles}}
+  </ul>
 </div>
