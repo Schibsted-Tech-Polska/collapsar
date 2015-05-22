@@ -1,5 +1,8 @@
 $widgetPadding: 20px;
 
+$font-size: 14px;
+$line-height: 1.6;
+$lines-to-show: 3;
 
 @mixin clearfix {
   &:after {
@@ -83,28 +86,31 @@ $widgetPadding: 20px;
     .most-shared-info {
       display: table-cell;
       vertical-align: middle;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: $font-size;
+      line-height: $line-height;
     }
 
     .most-shared-img {
-      padding-right: 20px;
-      max-width: 142px;
-
+      max-width: 120px;
+      overflow: hidden;
       img {
-        max-height: 80px;
+        max-height: 90px;
+        margin: 0 0 0 -20px;
       }
     }
 
     .most-shared-info {
-
+      padding-left: 20px;
       .shared-title {
         font-weight: bold;
         color: #3F96B1;
-        max-height: 32px;
-        /*text-overflow: ellipsis;*/
-        /*overflow: hidden;*/
-        /*display: block;*/
+        display: block; /* Fallback for non-webkit */
+        display: -webkit-box;
+        max-height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+        -webkit-line-clamp: $lines-to-show;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
         text-decoration: none;
       }
 
