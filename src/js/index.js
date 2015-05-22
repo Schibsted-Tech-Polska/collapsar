@@ -15,7 +15,9 @@ function setup(container, config){
       cssClass: 'read-more-button'
     },
     mostShared: {
-      header: 'Mest delte artikler'
+      header: 'Mest delte artikler',
+      counter: 'total_count',
+      counterLabel: 'x liker denne'
     }
   };
   var options = utils.extend(defaultValues, config);

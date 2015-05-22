@@ -10,7 +10,9 @@ function Widget(container, conf){
 
   articleBox.render({
     url: conf.mostShared.url,
-    header: conf.mostShared.header
+    header: conf.mostShared.header,
+    counter: conf.mostShared.counter,
+    counterLabel: conf.mostShared.counterLabel
   }, function(box){
     _button.parentNode.insertBefore(box, _button.nextSibling);
   });

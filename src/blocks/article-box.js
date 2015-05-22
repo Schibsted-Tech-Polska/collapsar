@@ -7,14 +7,21 @@ export function render(conf, done){
                var responseHtml = '<span></span>';
                if(responseJson.length){
                  responseHtml = template({
-                   articles: responseJson,
-                   header: conf.header
+                   articles: addCounters(responseJson),
+                   header: conf.header,
                  });
                  done(utils.stringToDom(responseHtml));
                } else {
                  done(utils.stringToDom(responseHtml));
                }
              });
+  function addCounters(articles){
+    return articles.map(art => {
+      art.counter = art[conf.counter];
+      art.counterLabel = conf.counterLabel;
+      return art;
+    });
+  }
 }
 
 

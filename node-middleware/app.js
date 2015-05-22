@@ -5,13 +5,14 @@ var ASQ = require('asynquence');
 var app = express();
 
 function createMiddleware(config){
+
   app.get('/', handleRequest);
 
   var cached;
   var ttl = 5 * 60 * 1000; //time to live
   var sndApi = require('./components/snd-api')({
-    SND_API_KEY: config.SND_API_KEY,
-    SND_API_SECRET: config.SND_API_SECRET
+    SND_API_KEY: config.snd.SND_API_KEY,
+    SND_API_SECRET: config.snd.SND_API_SECRET
   });
 
   function handleRequest(req, res){
@@ -22,12 +23,13 @@ function createMiddleware(config){
     } else {
       //get from source
       console.log('most shared articles fetched from source');
-      getMostShared().
+      getMostShared(config.mostShared.url).
         then(function(_, mostShared){
         if(mostShared.length){
           //sort reposne from webhits
           var best = mostShared.sort(function(a, b){
-            return b.total_count - a.total_count;
+            var counter = config.mostShared.counter;
+            return b[counter] - a[counter];
           })
           //add article id to Object => used when merging response from SND
           .map(function(article){
@@ -69,9 +71,9 @@ function createMiddleware(config){
   return app;
 }
 
-function getMostShared(){
+function getMostShared(url){
   return ASQ(function(done){
-    request('https://webhit.snd.no/webhit/reports/mostshared.json.php?range=week', function(err, response, data){
+    request(url, function(err, response, data){
       done(JSON.parse(data));
     });
   });

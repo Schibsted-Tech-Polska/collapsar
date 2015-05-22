@@ -18,7 +18,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-app.use('/collapsr', collapsr(require('./config')));
+app.use('/collapsr', collapsr({
+  snd: require('./config'),
+  mostShared: {
+    url: 'https://webhit.snd.no/webhit/reports/mostshared.json.php?range=today',
+    counter: 'total_count'
+  }
+}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

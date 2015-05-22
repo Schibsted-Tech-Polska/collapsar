@@ -23,7 +23,7 @@
     var cls = collapsr(document.getElementById('headline'), {
       mostShared: {
         url: '/collapsr',
-        header: 'Mest delte artikler'
+        header: 'Mest delt i dag'
       },
     	// relatedArticlesUrl: 'https://webhit.snd.no/webhit/reports/mostshared.json.php?range=today'
     	defaultCss: false
